@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coinring Legends — Android APK Download</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dark: { 950: '#07080c', 900: '#0d0f17', 850: '#12141f', 800: '#181b2a', 700: '#23273c' },
+            gold: { 300: '#fde047', 400: '#facc15', 500: '#eab308', 600: '#ca8a04', 700: '#a16207' }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fff7c2 0%, #facc15 35%, #eab308 65%, #92400e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-card {
+      background: rgba(18, 20, 31, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(234, 179, 8, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-dark-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-gold-500 selection:text-dark-950">
+
+  <!-- Header -->
+  <header class="border-b border-gold-500/20 bg-dark-900/90 backdrop-blur px-4 py-3 sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <i class="fa-solid fa-ring text-gold-400 text-xl"></i>
+        <span class="font-black text-lg gold-gradient-text uppercase tracking-wider">Coinring Legends</span>
+      </a>
+      <a href="index.html" class="text-xs font-bold text-gold-400 hover:text-gold-200 border border-gold-500/30 px-3 py-1.5 rounded-full bg-dark-850">
+        <i class="fa-solid fa-arrow-left"></i> Zur Web-App
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="max-w-4xl mx-auto w-full px-4 py-8 sm:py-12 flex-1 flex flex-col items-center text-center">
+
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-bold mb-4">
+      <i class="fa-brands fa-android text-base text-emerald-400"></i>
+      <span>Offizielle Android Version v1.0.0 (Release)</span>
+    </div>
+
+    <h1 class="text-3xl sm:text-5xl font-black uppercase tracking-tight gold-gradient-text mb-4">
+      Coinring Legends für Android
+    </h1>
+    <p class="text-sm sm:text-base text-slate-300 max-w-xl mb-8 leading-relaxed">
+      Erlebe die Kunst der handgeschmiedeten Münzringe, bestelle dein massgefertigtes Unikat direkt via WhatsApp und meistere das Ring-Clash Spiel direkt auf deinem Android Smartphone!
+    </p>
+
+    <!-- Main Download Card -->
+    <div class="glass-card w-full max-w-xl p-6 sm:p-8 rounded-3xl border-2 border-gold-500/40 shadow-2xl mb-10 text-left relative overflow-hidden">
+      <div class="flex flex-col sm:flex-row items-center gap-6">
+        
+        <!-- App Icon & QR -->
+        <div class="flex flex-col items-center">
+          <div class="w-24 h-24 rounded-2xl border-2 border-gold-400 bg-dark-850 p-2 shadow-lg shadow-gold-500/30 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-ring text-gold-400 text-5xl animate-pulse"></i>
+          </div>
+          <!-- QR Code to download -->
+          <div class="bg-white p-2 rounded-xl shadow">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&margin=4&color=0A0A0A&bgcolor=FFFFFF&data=https://github.com/coinringlegends/CYBERMAPSXTM/releases/download/v1.0.0/coinring-legends.apk" alt="Download QR Code" class="w-24 h-24" />
+          </div>
+          <span class="text-[10px] text-slate-400 mt-1 font-semibold">Mobil scannen</span>
+        </div>
+
+        <!-- Details & Download Action -->
+        <div class="flex-1 w-full space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span class="text-xs text-slate-400">App:</span>
+            <span class="text-xs font-extrabold text-gold-300">Coinring Legends</span>
+          </div>
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span class="text-xs text-slate-400">Dateigrösse:</span>
+            <span class="text-xs font-bold text-slate-200">23.9 MB (APK)</span>
+          </div>
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span class="text-xs text-slate-400">Version:</span>
+            <span class="text-xs font-bold text-emerald-400">v1.0.0 (Arm64 & Universal)</span>
+          </div>
+          <div class="flex items-center justify-between pb-1">
+            <span class="text-xs text-slate-400">Voraussetzung:</span>
+            <span class="text-xs font-bold text-slate-300">Android 7.0 oder neuer</span>
+          </div>
+
+          <!-- Big Download Button -->
+          <a href="https://github.com/coinringlegends/CYBERMAPSXTM/releases/download/v1.0.0/coinring-legends.apk" 
+             download="coinring-legends.apk"
+             class="block w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:brightness-110 text-white font-black text-sm tracking-wide shadow-xl shadow-emerald-500/30 text-center transition active:scale-95">
+            <i class="fa-solid fa-download mr-2"></i>
+            <span>APK JETZT HERUNTERLADEN</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Step-by-Step Installation Guide -->
+    <div class="w-full max-w-2xl text-left glass-card p-6 rounded-3xl border border-slate-800 mb-8">
+      <h3 class="text-base font-extrabold text-gold-300 mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-circle-info"></i> Installationsanleitung (Android)
+      </h3>
+      <ol class="space-y-3 text-xs text-slate-300 list-decimal list-inside leading-relaxed">
+        <li><strong>APK herunterladen:</strong> Klicke auf den grünen Download-Button oben.</li>
+        <li><strong>Installation bestätigen:</strong> Öffne die heruntergeladene Datei <code>coinring-legends.apk</code> im Benachrichtigungsfeld oder Download-Ordner.</li>
+        <li><strong>Installation aus unbekannten Quellen erlauben:</strong> Falls Android warnt, tippe auf <em>"Einstellungen"</em> und aktiviere <em>"Apps aus dieser Quelle zulassen"</em>.</li>
+        <li><strong>Fertigstellen:</strong> Tippe auf <em>"Installieren"</em> und starte Coinring Legends direkt auf deinem Startbildschirm!</li>
+      </ol>
+    </div>
+
+    <!-- Features Overview -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-2xl text-left">
+      <div class="glass-card p-4 rounded-2xl border border-slate-800">
+        <i class="fa-brands fa-whatsapp text-emerald-400 text-xl mb-2"></i>
+        <h4 class="text-xs font-bold text-slate-100 mb-1">WhatsApp Bestellungen</h4>
+        <p class="text-[11px] text-slate-400">Bestelle Ring-Unikate direkt mit automatisierter CallMeBot Nachricht an +41 79 833 93 87.</p>
+      </div>
+      <div class="glass-card p-4 rounded-2xl border border-slate-800">
+        <i class="fa-solid fa-hammer text-gold-400 text-xl mb-2"></i>
+        <h4 class="text-xs font-bold text-slate-100 mb-1">Schmiede & Clashes</h4>
+        <p class="text-[11px] text-slate-400">Interaktiver 3D-Coinring Tapper, Ring-Duelle in 4 Arenen und globale Rangliste.</p>
+      </div>
+      <div class="glass-card p-4 rounded-2xl border border-slate-800">
+        <i class="fa-solid fa-bolt text-cyan-400 text-xl mb-2"></i>
+        <h4 class="text-xs font-bold text-slate-100 mb-1">Offline & Schnell</h4>
+        <p class="text-[11px] text-slate-400">Funktioniert jederzeit offline mit nativer Performance und synchronisiert bei Bedarf mit Firestore.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+    <p>COINRING LEGENDS™ &copy; 2026. Handgefertigte Unikate aus historischen Münzen.</p>
+    <p class="mt-1">Kontakt & Hotline: +41 79 833 93 87 • COINRINGLEGENDS@gmail.com</p>
+  </footer>
+
+</body>
+</html>
