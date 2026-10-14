@@ -1,16 +1,1067 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyber Maps X™</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>COINRING LEGENDS™ — Handgefertigte Coinrings | Jedes Stück ein Unikat</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              950: '#07080c',
+              900: '#0d0f17',
+              850: '#12141f',
+              800: '#181b2a',
+              700: '#23273c',
+              600: '#343954'
+            },
+            gold: {
+              100: '#fef9c3',
+              200: '#fef08a',
+              300: '#fde047',
+              400: '#facc15',
+              500: '#eab308',
+              600: '#ca8a04',
+              700: '#a16207',
+              800: '#854d0e',
+              900: '#713f12'
+            }
+          },
+          animation: {
+            'spin-slow': 'spin 18s linear infinite',
+            'spin-reverse': 'spin-reverse 24s linear infinite',
+            'pulse-gold': 'pulseGold 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+          },
+          keyframes: {
+            'spin-reverse': {
+              'from': { transform: 'rotate(360deg)' },
+              'to': { transform: 'rotate(0deg)' }
+            },
+            pulseGold: {
+              '0%, 100%': { boxShadow: '0 0 20px rgba(234, 179, 8, 0.4), inset 0 0 15px rgba(234, 179, 8, 0.2)' },
+              '50%': { boxShadow: '0 0 45px rgba(250, 204, 21, 0.8), inset 0 0 25px rgba(250, 204, 21, 0.5)' }
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fff7c2 0%, #facc15 35%, #eab308 65%, #92400e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #fde047 0%, #eab308 50%, #a16207 100%);
+    }
+    .glass-card {
+      background: rgba(18, 20, 31, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(234, 179, 8, 0.22);
+    }
+    .tap-target {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+      touch-action: manipulation;
+    }
+    .ring-sheen {
+      background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.7) 0%, rgba(250,204,21,0.4) 30%, rgba(161,98,7,0.1) 70%, transparent 100%);
+    }
+  </style>
 </head>
+<body class="bg-dark-950 text-slate-100 font-sans min-h-screen pb-24 md:pb-8 flex flex-col selection:bg-gold-500 selection:text-dark-950">
 
-<body>
+  <!-- TOP BANNER -->
+  <div class="bg-gradient-to-r from-dark-900 via-gold-900/40 to-dark-900 border-b border-gold-500/20 py-1.5 px-3 text-center text-[11px] text-gold-300 font-semibold tracking-wider flex items-center justify-center gap-3">
+    <span>★ Handgefertigte Coinrings. Jedes Stück ein absolutes Unikat. 1 Ring = 1 LEGENDS-ID = 1 Verkauf.</span>
+    <a href="download.html" class="hidden sm:inline-flex items-center gap-1 text-emerald-400 font-bold hover:underline">
+      <i class="fa-brands fa-android"></i> Android App herunterladen
+    </a>
+  </div>
 
-<script>
-window.location.replace("https://cyber-maps-x-tm-app.base44.app");
-</script>
+  <!-- TOP HEADER / BRAND NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-md border-b border-gold-500/20 px-3 py-2.5 sm:px-6">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
+      
+      <!-- Brand & Logo from Base44 -->
+      <div class="flex items-center gap-2.5 cursor-pointer" onclick="switchTab('showcase')">
+        <img src="https://media.base44.com/images/public/6a6cbd3cf0a1f23e5b5db662/2cddb7b82_logo.png" 
+             alt="Coinring Legends Logo" 
+             onerror="this.style.display='none'; document.getElementById('fallback-logo-icon').classList.remove('hidden');" 
+             class="h-9 w-auto rounded-full border border-gold-400 p-0.5 shadow-md shadow-gold-500/30" />
+        <div id="fallback-logo-icon" class="hidden w-9 h-9 rounded-full border-2 border-gold-400 p-0.5 flex items-center justify-center bg-dark-850">
+          <i class="fa-solid fa-ring text-gold-400 text-lg"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h1 class="text-base sm:text-lg font-black tracking-wider uppercase gold-gradient-text">COINRING LEGENDS™</h1>
+          </div>
+          <p id="player-title" class="text-[11px] text-slate-400 font-medium">Manufaktur & Ring-Arena</p>
+        </div>
+      </div>
 
+      <!-- Action & Currency Bar -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Coins -->
+        <div class="flex items-center gap-1.5 bg-dark-850 border border-gold-500/30 px-3 py-1.5 rounded-full shadow-inner">
+          <span class="text-sm">🪙</span>
+          <span id="gold-display" class="font-extrabold text-xs sm:text-sm text-gold-300">100</span>
+        </div>
+
+        <!-- Android APK Button -->
+        <a href="download.html" class="py-1.5 px-3 rounded-full bg-dark-800 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10 font-bold text-xs flex items-center gap-1.5 transition">
+          <i class="fa-brands fa-android text-sm"></i>
+          <span class="hidden sm:inline">APK Download</span>
+        </a>
+
+        <!-- Bestellen / WhatsApp -->
+        <button onclick="switchTab('order')" 
+                class="py-1.5 px-3.5 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 hover:brightness-110 text-white font-extrabold text-xs shadow-md shadow-emerald-500/25 flex items-center gap-1.5 transition active:scale-95">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Bestellen</span>
+        </button>
+
+        <!-- Audio -->
+        <button id="btn-sound-toggle" onclick="toggleSound()" title="Sound On/Off" class="w-8 h-8 rounded-full bg-dark-800 border border-gold-500/30 text-gold-400 hover:text-gold-200 flex items-center justify-center transition">
+          <i id="sound-icon" class="fa-solid fa-volume-high text-xs"></i>
+        </button>
+
+        <!-- Settings -->
+        <button onclick="openSettingsModal()" title="Firebase Settings" class="w-8 h-8 rounded-full bg-dark-800 border border-gold-500/30 text-gold-400 hover:text-gold-200 flex items-center justify-center transition">
+          <i class="fa-solid fa-gear text-xs"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto w-full px-3 sm:px-6 pt-4 flex-1 flex flex-col">
+
+    <!-- DESKTOP TOP NAVIGATION -->
+    <nav class="hidden md:flex items-center justify-center gap-2 mb-5 bg-dark-900/60 p-1.5 rounded-2xl border border-gold-500/20 max-w-3xl mx-auto">
+      <button onclick="switchTab('showcase')" id="nav-showcase" class="tab-btn active px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-gradient-to-r from-gold-600 to-gold-500 text-dark-950 shadow-md">
+        <i class="fa-solid fa-gem"></i> Manufaktur & Unikate
+      </button>
+      <button onclick="switchTab('order')" id="nav-order" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300">
+        <i class="fa-brands fa-whatsapp"></i> Konfigurator & WhatsApp Order
+      </button>
+      <button onclick="switchTab('forge')" id="nav-forge" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 text-slate-300 hover:text-gold-300">
+        <i class="fa-solid fa-hammer"></i> Coin Forge (Game)
+      </button>
+      <button onclick="switchTab('arena')" id="nav-arena" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 text-slate-300 hover:text-gold-300">
+        <i class="fa-solid fa-shield-halved"></i> Ring Arena
+      </button>
+      <button onclick="switchTab('leaderboard')" id="nav-leaderboard" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 text-slate-300 hover:text-gold-300">
+        <i class="fa-solid fa-trophy"></i> Rangliste
+      </button>
+      <a href="download.html" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 text-emerald-400 hover:underline">
+        <i class="fa-brands fa-android"></i> APK Download
+      </a>
+    </nav>
+
+    <!-- STATUS BANNER -->
+    <div id="sync-banner" class="mb-4 text-xs flex items-center justify-between px-3 py-2 rounded-xl bg-dark-850/80 border border-gold-500/20 text-slate-300">
+      <div class="flex items-center gap-2">
+        <span id="sync-indicator" class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span id="sync-text">Firestore Status: Verbunden (users, coins & orders aktiv)</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="openAuthModal()" class="text-gold-400 hover:text-gold-200 font-bold underline flex items-center gap-1">
+          <i class="fa-solid fa-user-circle"></i> <span id="auth-status-btn-text">cybermapsx@gmail.com</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- TAB 1: MANUFAKTUR & UNIKATE (The Official Base44 Showcase) -->
+    <!-- ======================================================== -->
+    <section id="tab-showcase" class="tab-content flex-1 flex flex-col">
+      
+      <!-- Hero Banner -->
+      <div class="glass-card rounded-3xl p-6 sm:p-10 mb-8 border-2 border-gold-500/30 relative overflow-hidden text-center sm:text-left">
+        <div class="max-w-2xl relative z-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-bold mb-3">
+            <span>COINRING LEGENDS MANUFAKTUR SCHWEIZ</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tight gold-gradient-text mb-3 leading-tight">
+            Handgefertigte Coinrings.<br/>Jedes Stück ein absolutes Unikat.
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+            Aus echten historischen Silber- und Goldmünzen geschmiedet. Jeder Ring trägt seine originale Randschrift, Prägung und Patina weiter. Mit offizieller LEGENDS-ID und Authentizitäts-Zertifikat.
+          </p>
+          <div class="flex flex-wrap items-center gap-3 justify-center sm:justify-start">
+            <button onclick="switchTab('order')" class="py-3 px-6 rounded-2xl bg-gradient-to-r from-gold-600 via-gold-500 to-amber-500 hover:brightness-110 text-dark-950 font-black text-xs sm:text-sm shadow-xl shadow-gold-500/20 active:scale-95 transition">
+              <i class="fa-brands fa-whatsapp text-base mr-1.5"></i> Ring jetzt konfigurieren & bestellen
+            </button>
+            <a href="download.html" class="py-3 px-5 rounded-2xl bg-dark-850 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10 font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+              <i class="fa-brands fa-android text-base"></i> Android APK Herunterladen
+            </a>
+          </div>
+        </div>
+
+        <!-- Decorative background ring -->
+        <div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full border-8 border-gold-500/10 pointer-events-none flex items-center justify-center">
+          <div class="w-64 h-64 rounded-full border border-gold-500/20"></div>
+        </div>
+      </div>
+
+      <!-- Real Base44 Gallery of Coin Rings -->
+      <div class="mb-8">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="text-xl font-black uppercase text-gold-300">Aktuelle Unikate & Kollektion</h3>
+            <p class="text-xs text-slate-400">1 Ring = 1 LEGENDS-ID = 1 Verkauf</p>
+          </div>
+          <span class="text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full">
+            Auf Lager
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          
+          <!-- Product 1: Morgan Dollar -->
+          <div class="glass-card rounded-3xl overflow-hidden border border-gold-500/30 flex flex-col justify-between group hover:border-gold-400 transition">
+            <div class="relative h-56 bg-dark-900 overflow-hidden">
+              <img src="https://media.base44.com/images/public/6a6cbd3cf0a1f23e5b5db662/74aca7e79_17855121516473062621741864578015.jpg" alt="1921 Morgan Silver Dollar Ring" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute top-3 left-3 bg-dark-950/80 backdrop-blur text-gold-300 font-mono text-[10px] font-bold px-2 py-0.5 rounded-full border border-gold-500/40">
+                LEGENDS-ID: #CL-1921-US
+              </span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h4 class="font-extrabold text-base text-slate-100 mb-1">1921 Morgan Silver Dollar Ring</h4>
+                <p class="text-xs text-slate-400 mb-3 leading-relaxed">900er Feinsilber Münzring der berühmten US Morgan Dollar Prägung mit originaler E Pluribus Unum Randschrift.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-slate-800">
+                <div>
+                  <span class="text-[10px] text-slate-400 block">Unikatpreis</span>
+                  <span class="text-base font-black text-gold-300">189 CHF</span>
+                </div>
+                <button onclick="selectProductAndOrder('1921 Morgan Silver Dollar Ring', '189')" class="py-2 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-black text-xs shadow hover:brightness-110 active:scale-95">
+                  <i class="fa-brands fa-whatsapp"></i> Bestellen
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2: Schweizer Goldvreneli -->
+          <div class="glass-card rounded-3xl overflow-hidden border border-gold-500/30 flex flex-col justify-between group hover:border-gold-400 transition">
+            <div class="relative h-56 bg-dark-900 overflow-hidden">
+              <img src="https://media.base44.com/images/public/6a6cbd3cf0a1f23e5b5db662/ed8e8afaa_17855121200057464563490022965019.jpg" alt="20 Franken Schweizer Goldvreneli Ring" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute top-3 left-3 bg-dark-950/80 backdrop-blur text-gold-300 font-mono text-[10px] font-bold px-2 py-0.5 rounded-full border border-gold-500/40">
+                LEGENDS-ID: #CL-VRENELI-20
+              </span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h4 class="font-extrabold text-base text-slate-100 mb-1">20 Franken Schweizer Goldvreneli Ring</h4>
+                <p class="text-xs text-slate-400 mb-3 leading-relaxed">Originale Schweizer 900er Goldmünze. Höchste Präzision mit 22 Schweizer Sternen auf der Flanke.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-slate-800">
+                <div>
+                  <span class="text-[10px] text-slate-400 block">Unikatpreis</span>
+                  <span class="text-base font-black text-gold-300">490 CHF</span>
+                </div>
+                <button onclick="selectProductAndOrder('20 Franken Schweizer Goldvreneli Ring', '490')" class="py-2 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-black text-xs shadow hover:brightness-110 active:scale-95">
+                  <i class="fa-brands fa-whatsapp"></i> Bestellen
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3: Krugerrand Signet -->
+          <div class="glass-card rounded-3xl overflow-hidden border border-gold-500/30 flex flex-col justify-between group hover:border-gold-400 transition">
+            <div class="relative h-56 bg-dark-900 overflow-hidden">
+              <img src="https://media.base44.com/images/public/6a6cbd3cf0a1f23e5b5db662/aa3a57e97_17855121384732467298765262191586.jpg" alt="1/2 oz Krugerrand Gold Signet Ring" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute top-3 left-3 bg-dark-950/80 backdrop-blur text-gold-300 font-mono text-[10px] font-bold px-2 py-0.5 rounded-full border border-gold-500/40">
+                LEGENDS-ID: #CL-KRUGER-50
+              </span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h4 class="font-extrabold text-base text-slate-100 mb-1">1/2 oz Krugerrand Bullion Signet</h4>
+                <p class="text-xs text-slate-400 mb-3 leading-relaxed">22-Karat Rotgold Anlagemünze. Massive Haptik, markante Randkerbung und historische Südafrika Gravur.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-slate-800">
+                <div>
+                  <span class="text-[10px] text-slate-400 block">Unikatpreis</span>
+                  <span class="text-base font-black text-gold-300">850 CHF</span>
+                </div>
+                <button onclick="selectProductAndOrder('1/2 oz Krugerrand Bullion Signet Ring', '850')" class="py-2 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-black text-xs shadow hover:brightness-110 active:scale-95">
+                  <i class="fa-brands fa-whatsapp"></i> Bestellen
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4: 1 oz Britannia -->
+          <div class="glass-card rounded-3xl overflow-hidden border border-gold-500/30 flex flex-col justify-between group hover:border-gold-400 transition">
+            <div class="relative h-56 bg-dark-900 overflow-hidden">
+              <img src="https://media.base44.com/images/public/6a6cbd3cf0a1f23e5b5db662/d394d9c73_17855121927744160078278343040111.jpg" alt="1 oz Britannia Fine Silver Ring" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute top-3 left-3 bg-dark-950/80 backdrop-blur text-gold-300 font-mono text-[10px] font-bold px-2 py-0.5 rounded-full border border-gold-500/40">
+                LEGENDS-ID: #CL-BRITANNIA-999
+              </span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h4 class="font-extrabold text-base text-slate-100 mb-1">1 oz Britannia 999 Feinsilber Ring</h4>
+                <p class="text-xs text-slate-400 mb-3 leading-relaxed">British Royal Mint .999 Reinsilber mit wellenförmiger Sicherheitsgravur und Kriegerin Britannia.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-slate-800">
+                <div>
+                  <span class="text-[10px] text-slate-400 block">Unikatpreis</span>
+                  <span class="text-base font-black text-gold-300">169 CHF</span>
+                </div>
+                <button onclick="selectProductAndOrder('1 oz Britannia Fine Silver 999 Ring', '169')" class="py-2 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-black text-xs shadow hover:brightness-110 active:scale-95">
+                  <i class="fa-brands fa-whatsapp"></i> Bestellen
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 5: Schweizer Alphirten 5 Franken -->
+          <div class="glass-card rounded-3xl overflow-hidden border border-gold-500/30 flex flex-col justify-between group hover:border-gold-400 transition">
+            <div class="relative h-56 bg-dark-900 overflow-hidden">
+              <img src="https://media.base44.com/images/public/6a6cbd3cf0a1f23e5b5db662/beea1bbf4_17855122845408927949049876390951.jpg" alt="5 Franken Silbermünze Alphirten Ring" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute top-3 left-3 bg-dark-950/80 backdrop-blur text-gold-300 font-mono text-[10px] font-bold px-2 py-0.5 rounded-full border border-gold-500/40">
+                LEGENDS-ID: #CL-CH-5FR
+              </span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h4 class="font-extrabold text-base text-slate-100 mb-1">5 Franken Schweizer Alphirten Ring</h4>
+                <p class="text-xs text-slate-400 mb-3 leading-relaxed">Klassische Schweizer Silber-Originalmünze mit Randschrift Dominus Providebit und Wappenkranz.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-slate-800">
+                <div>
+                  <span class="text-[10px] text-slate-400 block">Unikatpreis</span>
+                  <span class="text-base font-black text-gold-300">145 CHF</span>
+                </div>
+                <button onclick="selectProductAndOrder('5 Franken Schweizer Alphirten Silbermünze Ring', '145')" class="py-2 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-black text-xs shadow hover:brightness-110 active:scale-95">
+                  <i class="fa-brands fa-whatsapp"></i> Bestellen
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Custom Studio Service -->
+          <div class="glass-card rounded-3xl p-6 border border-emerald-500/40 flex flex-col justify-between bg-emerald-950/20">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400 flex items-center justify-center text-emerald-400 text-2xl mb-3">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+              <h4 class="font-black text-lg text-slate-100 mb-2">Eigene Münze einsenden</h4>
+              <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                Besitzt du eine Erbmünze, Reisegeld oder eine persönliche Sammlermünze? Sende sie uns ein, wir schmieden daraus dein persönliches Erbstück.
+              </p>
+            </div>
+            <button onclick="selectProductAndOrder('Eigene Sammlermünze einsenden', '199')" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow">
+              <i class="fa-brands fa-whatsapp"></i> Manufaktur-Anfrage starten
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- The Four Craftsmanship Steps (Die Manufaktur) -->
+      <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-800 mb-8">
+        <h3 class="text-xl font-black uppercase text-gold-300 mb-6 text-center">Der Schmiedeprozess: Von der Münze zum Ring</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 text-center sm:text-left">
+          <div class="bg-dark-900/60 p-4 rounded-2xl border border-slate-800">
+            <span class="text-xs font-mono text-gold-400 font-bold">SCHRITT 01</span>
+            <h5 class="font-extrabold text-sm text-slate-100 mt-1 mb-2">The Selection</h5>
+            <p class="text-xs text-slate-400">Auswahl erlesener historischer Münzen mit intaktem Rand und dokumentiertem Feingehalt.</p>
+          </div>
+          <div class="bg-dark-900/60 p-4 rounded-2xl border border-slate-800">
+            <span class="text-xs font-mono text-gold-400 font-bold">SCHRITT 02</span>
+            <h5 class="font-extrabold text-sm text-slate-100 mt-1 mb-2">The Annealing</h5>
+            <p class="text-xs text-slate-400">Kontrolliertes Glühen unter Schutzgas, um die Molekularstruktur des Edelmetalls zu entspannen.</p>
+          </div>
+          <div class="bg-dark-900/60 p-4 rounded-2xl border border-slate-800">
+            <span class="text-xs font-mono text-gold-400 font-bold">SCHRITT 03</span>
+            <h5 class="font-extrabold text-sm text-slate-100 mt-1 mb-2">The Fold</h5>
+            <p class="text-xs text-slate-400">Präzises Falten der Münze, wodurch die Innen- und Aussenprägung makellos erhalten bleibt.</p>
+          </div>
+          <div class="bg-dark-900/60 p-4 rounded-2xl border border-slate-800">
+            <span class="text-xs font-mono text-gold-400 font-bold">SCHRITT 04</span>
+            <h5 class="font-extrabold text-sm text-slate-100 mt-1 mb-2">The Finish</h5>
+            <p class="text-xs text-slate-400">Feinschliff, Komfort-Innenbombierung, Vintage-Patina oder Hochglanz-Mirror-Politur.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TAB 2: KONFIGURATOR & WHATSAPP ORDER (CallMeBot) -->
+    <!-- ======================================================== -->
+    <section id="tab-order" class="tab-content hidden flex-1 flex flex-col">
+      <div class="text-center mb-6">
+        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
+          WhatsApp CallMeBot Integration
+        </span>
+        <h2 class="text-2xl font-black uppercase gold-gradient-text mt-2">Münzring Konfigurator & Bestellung</h2>
+        <p class="text-xs text-slate-300 max-w-xl mx-auto mt-1">
+          Jede Bestellung generiert eine Benachrichtigung via CallMeBot an <strong>+41 79 833 93 87</strong>.
+        </p>
+      </div>
+
+      <div class="max-w-2xl mx-auto w-full glass-card p-5 sm:p-7 rounded-3xl border-2 border-emerald-500/40 shadow-2xl">
+        <form id="order-form" onsubmit="handleOrderSubmit(event)" class="space-y-4">
+          
+          <div>
+            <label class="block text-xs font-extrabold uppercase tracking-wider text-gold-400 mb-1.5">
+              1. Münzring Modell wählen
+            </label>
+            <select id="order-ring-model" onchange="updateCallMeBotPreview()" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-100 text-sm font-semibold focus:border-gold-400 outline-none">
+              <option value="1921 Morgan Silver Dollar Ring (90% Silber)" data-price="189">1921 Morgan Silver Dollar Ring (90% Feinsilber) – 189 CHF</option>
+              <option value="20 Franken Schweizer Goldvreneli Ring (900er Gold)" data-price="490">20 Franken Schweizer Goldvreneli Ring (900er Gold) – 490 CHF</option>
+              <option value="1/2 oz Krugerrand Gold Signet Ring (22k)" data-price="850">1/2 oz Südafrika Krugerrand Signet Ring (22k Gold) – 850 CHF</option>
+              <option value="5 Franken Silbermünze Alphirten Ring" data-price="145">5 Franken Silbermünze Alphirt Ring (Original Silber) – 145 CHF</option>
+              <option value="1 oz Britannia Fine Silver Ring" data-price="169">1 oz Britannia Fine Silver 999 Ring – 169 CHF</option>
+              <option value="Eigene Münze einsenden und schmieden" data-price="199">Eigene Münze einsenden & zum Ring schmieden – 199 CHF</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-extrabold uppercase tracking-wider text-gold-400 mb-1.5">
+                2. Ringgrösse (EU / US)
+              </label>
+              <input type="text" id="order-ring-size" oninput="updateCallMeBotPreview()" required placeholder="z.B. EU 58" value="EU 58" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3.5 py-2 text-slate-100 text-sm font-semibold focus:border-gold-400 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-extrabold uppercase tracking-wider text-gold-400 mb-1.5">
+                3. Veredelung / Finish
+              </label>
+              <select id="order-ring-finish" onchange="updateCallMeBotPreview()" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3.5 py-2 text-slate-100 text-sm font-semibold focus:border-gold-400 outline-none">
+                <option value="Vintage Patina (Antik & Dunkler Schriftkontrast)">Vintage Patina (Antik & dunkler Schriftkontrast)</option>
+                <option value="Hochglanz Poliert (Mirror Polish)">Hochglanz Poliert (Mirror Polish)</option>
+                <option value="Matt Gebuerstet (Satin Finish)">Matt Gebürstet (Satin Finish)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-extrabold uppercase tracking-wider text-gold-400 mb-1.5">
+                4. Dein Nutzername / Vorname
+              </label>
+              <input type="text" id="order-customer-name" oninput="updateCallMeBotPreview()" required value="cybermapsx" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3.5 py-2 text-slate-100 text-sm font-semibold focus:border-gold-400 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-extrabold uppercase tracking-wider text-gold-400 mb-1.5">
+                5. Deine E-Mail Adresse
+              </label>
+              <input type="email" id="order-customer-email" oninput="updateCallMeBotPreview()" required value="cybermapsx@gmail.com" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3.5 py-2 text-slate-100 text-sm font-semibold focus:border-gold-400 outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-extrabold uppercase tracking-wider text-gold-400 mb-1.5">
+              6. Lieferadresse & Anmerkungen
+            </label>
+            <input type="text" id="order-customer-address" oninput="updateCallMeBotPreview()" placeholder="Strasse, PLZ, Ort (Schweiz / Weltweit)" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3.5 py-2 text-slate-100 text-sm font-semibold focus:border-gold-400 outline-none" />
+          </div>
+
+          <!-- Preview of the requested CallMeBot URL -->
+          <div class="bg-dark-950 p-3.5 rounded-2xl border border-emerald-500/30">
+            <div class="flex items-center justify-between text-xs font-bold text-emerald-400 mb-1">
+              <span class="flex items-center gap-1.5"><i class="fa-brands fa-whatsapp text-sm"></i> CallMeBot URL Vorschau</span>
+              <span class="text-[10px] text-slate-400">Leerzeichen mit '+' getrennt</span>
+            </div>
+            <code id="preview-callmebot-url" class="block text-[10px] bg-dark-900 p-2 rounded-lg text-amber-300 font-mono break-all border border-slate-800">
+              https://api.callmebot.com/whatsapp.php?phone=41798339387&text=Du+hast+eine+neue+bestellung+...&apikey=6653249
+            </code>
+          </div>
+
+          <button type="submit" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:brightness-110 text-white font-black text-sm tracking-wide shadow-xl shadow-emerald-500/30 flex items-center justify-center gap-2.5 transition active:scale-95">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            <span>BESTELLUNG PER WHATSAPP ABSENDEN</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TAB 3: COIN FORGE (TAPPER & IDLE GAME) -->
+    <!-- ======================================================== -->
+    <section id="tab-forge" class="tab-content hidden flex-1 flex flex-col items-center">
+      <div class="w-full grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-5 text-center">
+        <div class="glass-card p-3 rounded-2xl">
+          <p class="text-[11px] text-slate-400 font-medium">Equipped Ring</p>
+          <p id="equipped-ring-name" class="text-sm font-extrabold text-gold-300 truncate">1921 Morgan Dollar Ring</p>
+        </div>
+        <div class="glass-card p-3 rounded-2xl">
+          <p class="text-[11px] text-slate-400 font-medium">Click Power</p>
+          <p id="click-power-text" class="text-sm font-extrabold text-emerald-400">+1 🪙 / tap</p>
+        </div>
+        <div class="glass-card p-3 rounded-2xl">
+          <p class="text-[11px] text-slate-400 font-medium">Auto-Mint</p>
+          <p id="cps-power-text" class="text-sm font-extrabold text-amber-400">0.0 🪙 / sec</p>
+        </div>
+        <div class="glass-card p-3 rounded-2xl">
+          <p class="text-[11px] text-slate-400 font-medium">Battle Power</p>
+          <p id="bp-power-text" class="text-sm font-extrabold text-cyan-400">120 BP</p>
+        </div>
+      </div>
+
+      <!-- 3D COIN RING TAPPER -->
+      <div class="relative my-3 flex items-center justify-center">
+        <div class="absolute w-72 h-72 rounded-full border border-gold-500/20 animate-spin-slow pointer-events-none"></div>
+        <div class="absolute w-80 h-80 rounded-full border border-dashed border-gold-500/30 animate-spin-reverse pointer-events-none"></div>
+        <div class="absolute w-60 h-60 rounded-full bg-gold-500/10 filter blur-3xl pointer-events-none animate-pulse-gold"></div>
+
+        <div id="coinring-target" 
+             onclick="handleRingTap(event)" 
+             class="tap-target relative w-56 h-56 sm:w-64 sm:h-64 rounded-full cursor-pointer transition-transform duration-75 active:scale-95 group flex items-center justify-center">
+          
+          <div class="w-full h-full rounded-full p-3.5 bg-gradient-to-tr from-amber-800 via-gold-400 to-amber-700 shadow-2xl shadow-gold-500/50 flex items-center justify-center border-4 border-gold-300">
+            <div class="w-full h-full rounded-full p-4 bg-gradient-to-br from-dark-900 via-dark-850 to-dark-950 flex items-center justify-center border border-gold-500/40 relative overflow-hidden">
+              <div class="absolute inset-0 ring-sheen pointer-events-none"></div>
+              
+              <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full border-4 border-gold-400/80 bg-gradient-to-tr from-gold-600 via-gold-300 to-gold-700 flex flex-col items-center justify-center shadow-inner relative z-10 group-hover:scale-105 transition-transform duration-200">
+                <i class="fa-solid fa-ring text-dark-950 text-2xl sm:text-3xl mb-1 drop-shadow"></i>
+                <span class="text-[10px] sm:text-xs font-black uppercase text-dark-950 tracking-widest text-center px-1">
+                  TAP TO MINT
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="floating-numbers" class="absolute inset-0 pointer-events-none overflow-visible"></div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="w-full max-w-xl flex flex-wrap items-center justify-center gap-3 my-3">
+        <button onclick="switchTab('order')" class="flex-1 min-w-[200px] py-3 px-5 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-extrabold shadow-lg flex items-center justify-center gap-2.5 transition active:scale-95">
+          <i class="fa-brands fa-whatsapp text-2xl"></i>
+          <div class="text-left">
+            <div class="text-[11px] uppercase tracking-wider font-semibold opacity-90">WhatsApp Manufaktur</div>
+            <div class="text-sm font-black">Echten Ring bestellen</div>
+          </div>
+        </button>
+        <button onclick="prestigeForge()" class="flex-1 min-w-[200px] py-3 px-5 rounded-2xl bg-gradient-to-r from-gold-600 to-amber-600 text-dark-950 font-black shadow-lg flex items-center justify-center gap-2.5 transition active:scale-95">
+          <i class="fa-solid fa-fire-burner text-2xl"></i>
+          <div class="text-left">
+            <div class="text-[11px] uppercase tracking-wider font-bold opacity-90">Anvil Re-Forge</div>
+            <div id="reforge-cost-text" class="text-sm font-black">Cost: 200 🪙 (+1 🔥)</div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Upgrades -->
+      <div class="w-full max-w-3xl mt-4">
+        <h3 class="text-base font-black text-gold-300 mb-3 flex items-center gap-2">
+          <i class="fa-solid fa-hammer"></i> Blacksmith & Auto-Minter Upgrades
+        </h3>
+        <div id="upgrades-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TAB 4: ARENA (CLASH & DUELS) -->
+    <!-- ======================================================== -->
+    <section id="tab-arena" class="tab-content hidden flex-1 flex flex-col">
+      <div class="text-center mb-5">
+        <h2 class="text-2xl font-black uppercase gold-gradient-text">Ring Clash Arena</h2>
+        <p class="text-xs text-slate-400">Duel rival ring forgers with your equipped coin ring!</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+        <button onclick="selectArenaTier(1)" id="tier-btn-1" class="arena-tier-btn active p-3 rounded-2xl glass-card text-left border-gold-400 bg-gold-500/10">
+          <div class="text-xs text-amber-400 font-bold">Tier 1</div>
+          <div class="font-extrabold text-sm text-slate-100">Copper Pit</div>
+          <div class="text-[11px] text-slate-400 mt-1">Bet: 50 🪙</div>
+        </button>
+        <button onclick="selectArenaTier(2)" id="tier-btn-2" class="arena-tier-btn p-3 rounded-2xl glass-card text-left">
+          <div class="text-xs text-slate-400 font-bold">Tier 2</div>
+          <div class="font-extrabold text-sm text-slate-100">Silver Colosseum</div>
+          <div class="text-[11px] text-slate-400 mt-1">Bet: 250 🪙</div>
+        </button>
+        <button onclick="selectArenaTier(3)" id="tier-btn-3" class="arena-tier-btn p-3 rounded-2xl glass-card text-left">
+          <div class="text-xs text-gold-400 font-bold">Tier 3</div>
+          <div class="font-extrabold text-sm text-slate-100">Golden Sovereign</div>
+          <div class="text-[11px] text-slate-400 mt-1">Bet: 1,000 🪙</div>
+        </button>
+        <button onclick="selectArenaTier(4)" id="tier-btn-4" class="arena-tier-btn p-3 rounded-2xl glass-card text-left">
+          <div class="text-xs text-purple-400 font-bold">Tier 4</div>
+          <div class="font-extrabold text-sm text-slate-100">Celestial Abyss</div>
+          <div class="text-[11px] text-slate-400 mt-1">Bet: 5,000 🪙</div>
+        </button>
+      </div>
+
+      <div class="glass-card rounded-3xl p-5 sm:p-8 relative overflow-hidden border-2 border-gold-500/30">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
+          
+          <!-- Player -->
+          <div class="bg-dark-900/80 border border-gold-500/30 p-4 rounded-2xl flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-full border-2 border-emerald-400 p-1 bg-dark-850 flex items-center justify-center mb-2">
+              <i class="fa-solid fa-ring text-gold-400 text-2xl"></i>
+            </div>
+            <h4 id="battle-player-name" class="font-black text-sm text-slate-100">You</h4>
+            <p id="battle-player-ring" class="text-xs text-gold-400 font-semibold mb-2">1921 Morgan Dollar Ring</p>
+            <div class="w-full bg-dark-950 rounded-full h-2.5 overflow-hidden mb-1">
+              <div id="player-hp-bar" class="bg-emerald-500 h-full w-full transition-all duration-300"></div>
+            </div>
+            <span id="player-hp-text" class="text-[10px] text-slate-400">100 / 100</span>
+          </div>
+
+          <!-- Opponent -->
+          <div class="bg-dark-900/80 border border-red-500/30 p-4 rounded-2xl flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-full border-2 border-red-500 p-1 bg-dark-850 flex items-center justify-center mb-2">
+              <i class="fa-solid fa-skull-crossbones text-red-400 text-2xl"></i>
+            </div>
+            <h4 id="battle-opponent-name" class="font-black text-sm text-slate-100">Baron Von Krugerrand</h4>
+            <p id="battle-opponent-ring" class="text-xs text-amber-400 font-semibold mb-2">Heavy Brass Signet</p>
+            <div class="w-full bg-dark-950 rounded-full h-2.5 overflow-hidden mb-1">
+              <div id="opponent-hp-bar" class="bg-red-500 h-full w-full transition-all duration-300"></div>
+            </div>
+            <span id="opponent-hp-text" class="text-[10px] text-slate-400">100 / 100</span>
+          </div>
+
+        </div>
+
+        <div class="mt-6 flex flex-col items-center">
+          <button id="btn-start-battle" onclick="triggerRingBattle()" class="py-3.5 px-8 rounded-2xl bg-gradient-to-r from-red-600 via-amber-600 to-gold-500 hover:brightness-110 text-white font-black text-sm shadow-xl active:scale-95 transition">
+            <i class="fa-solid fa-swords"></i> <span id="battle-btn-label">INITIATE RING CLASH! (Wager 50 🪙)</span>
+          </button>
+          <div id="battle-log-box" class="w-full max-w-xl mt-4 bg-dark-950/90 border border-gold-500/20 rounded-xl p-3 h-24 overflow-y-auto text-xs font-mono space-y-1">
+            <div class="text-slate-400 italic">Select an arena tier above and initiate ring clash.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TAB 5: LEADERBOARD -->
+    <!-- ======================================================== -->
+    <section id="tab-leaderboard" class="tab-content hidden flex-1 flex flex-col">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-black uppercase gold-gradient-text">Hall of Ring Legends</h2>
+        <div class="flex items-center gap-2 bg-dark-900 border border-gold-500/20 p-1 rounded-xl">
+          <button onclick="switchLeaderboardFilter('trophies')" id="lb-filter-trophies" class="px-3 py-1 text-xs font-bold rounded-lg bg-gold-500 text-dark-950">Trophies 🏆</button>
+          <button onclick="switchLeaderboardFilter('gold')" id="lb-filter-gold" class="px-3 py-1 text-xs font-bold rounded-lg text-slate-400">Wealth 🪙</button>
+        </div>
+      </div>
+      <div class="glass-card rounded-2xl overflow-hidden border border-gold-500/20">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-dark-900 border-b border-gold-500/20 text-gold-400 uppercase font-black">
+            <tr>
+              <th class="py-3 px-3 w-12 text-center">Rank</th>
+              <th class="py-3 px-3">Forgemaster</th>
+              <th class="py-3 px-3">Equipped Ring</th>
+              <th class="py-3 px-3 text-right">Trophies</th>
+              <th class="py-3 px-3 text-right">Coins</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-tbody" class="divide-y divide-slate-800 font-medium"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MOBILE BOTTOM NAVIGATION -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-dark-900/95 backdrop-blur-lg border-t border-gold-500/30 px-1.5 py-2 flex items-center justify-around">
+    <button onclick="switchTab('showcase')" id="mobile-nav-showcase" class="mobile-tab-btn active flex flex-col items-center gap-1 text-gold-400">
+      <i class="fa-solid fa-gem text-lg"></i>
+      <span class="text-[10px] font-bold">Unikate</span>
+    </button>
+    <button onclick="switchTab('order')" id="mobile-nav-order" class="mobile-tab-btn flex flex-col items-center gap-1 text-emerald-400">
+      <i class="fa-brands fa-whatsapp text-lg"></i>
+      <span class="text-[10px] font-bold">Bestellen</span>
+    </button>
+    <button onclick="switchTab('forge')" id="mobile-nav-forge" class="mobile-tab-btn flex flex-col items-center gap-1 text-slate-400">
+      <i class="fa-solid fa-hammer text-lg"></i>
+      <span class="text-[10px] font-bold">Game</span>
+    </button>
+    <button onclick="switchTab('arena')" id="mobile-nav-arena" class="mobile-tab-btn flex flex-col items-center gap-1 text-slate-400">
+      <i class="fa-solid fa-shield-halved text-lg"></i>
+      <span class="text-[10px] font-bold">Arena</span>
+    </button>
+    <a href="download.html" class="flex flex-col items-center gap-1 text-emerald-400">
+      <i class="fa-brands fa-android text-lg"></i>
+      <span class="text-[10px] font-bold">APK</span>
+    </a>
+  </nav>
+
+  <!-- MODAL: ORDER SUCCESS -->
+  <div id="modal-order-success" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="glass-card max-w-md w-full rounded-3xl p-6 border-2 border-emerald-500/50 relative shadow-2xl text-center">
+      <div class="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center text-emerald-400 text-3xl mx-auto mb-3">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h3 class="text-xl font-black text-white">Bestellung übermittelt!</h3>
+      <p class="text-xs text-emerald-400 font-semibold mb-3">WhatsApp CallMeBot an +41 79 833 93 87 ausgelöst</p>
+      <div id="order-success-details" class="bg-dark-950 p-4 rounded-2xl border border-slate-800 text-left text-xs space-y-1.5 mb-4 text-slate-300"></div>
+      <div class="space-y-2">
+        <a id="order-direct-whatsapp-link" href="#" target="_blank" class="block w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-md">
+          <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Chat öffnen
+        </a>
+        <button onclick="closeOrderSuccessModal()" class="w-full py-2.5 px-4 rounded-xl bg-dark-850 hover:bg-dark-800 text-slate-300 font-bold text-xs border border-slate-700">
+          Zurück zur Manufaktur
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: SETTINGS & FIREBASE CONFIG -->
+  <div id="modal-settings" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="glass-card max-w-lg w-full rounded-3xl p-6 border-2 border-gold-500/40 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+      <button onclick="closeSettingsModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-gold-500/20 border-2 border-gold-400 flex items-center justify-center text-gold-400 text-2xl">
+          <i class="fa-solid fa-fire"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-black text-white">Firebase & Server Settings</h3>
+          <p class="text-xs text-slate-400">Collections 'users', 'coins' und 'orders'</p>
+        </div>
+      </div>
+      <div class="space-y-3 mb-5">
+        <div class="bg-dark-950/80 p-3 rounded-2xl border border-gold-500/20 space-y-2 text-xs">
+          <div><label class="text-slate-400 font-semibold block mb-0.5">API Key</label><input id="cfg-apiKey" type="text" placeholder="YOUR_API_KEY" class="w-full bg-dark-900 border border-slate-700 rounded-lg px-3 py-1.5 text-white font-mono" /></div>
+          <div><label class="text-slate-400 font-semibold block mb-0.5">Project ID</label><input id="cfg-projectId" type="text" placeholder="YOUR_PROJECT" class="w-full bg-dark-900 border border-slate-700 rounded-lg px-3 py-1.5 text-white font-mono" /></div>
+        </div>
+        <button onclick="saveFirebaseConfig()" class="w-full py-2.5 px-4 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-950 font-black text-xs">
+          <i class="fa-solid fa-cloud-arrow-up"></i> Konfiguration speichern
+        </button>
+      </div>
+      <div class="border-t border-slate-800 pt-3 flex justify-between items-center text-xs">
+        <span class="text-slate-400">Android APK Version:</span>
+        <a href="download.html" class="text-emerald-400 font-bold underline">v1.0.0 Herunterladen</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2 pointer-events-none"></div>
+
+  <!-- SCRIPTS -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+    const defaultFirebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "123456",
+      appId: "1:123:web:abc"
+    };
+
+    let savedConfig = null;
+    try {
+      const stored = localStorage.getItem("coinring_firebase_cfg");
+      if (stored) savedConfig = JSON.parse(stored);
+    } catch(e) {}
+
+    const firebaseConfig = savedConfig || defaultFirebaseConfig;
+    let db = null;
+    if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY") {
+      try {
+        const app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+      } catch (err) {}
+    }
+
+    /* Sound Synthesizer */
+    let audioContext = null;
+    let soundEnabled = true;
+    function playSound(type) {
+      if (!soundEnabled) return;
+      try {
+        if (!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioContext.state === 'suspended') audioContext.resume();
+        const ctx = audioContext;
+        const now = ctx.currentTime;
+        if (type === 'coin') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine'; osc.frequency.setValueAtTime(1600, now);
+          osc.frequency.exponentialRampToValueAtTime(2200, now + 0.08);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+          osc.connect(gain); gain.connect(ctx.destination);
+          osc.start(now); osc.stop(now + 0.13);
+        } else if (type === 'win') {
+          [523, 659, 784].forEach((f, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.frequency.setValueAtTime(f, now + i*0.08);
+            gain.gain.setValueAtTime(0.2, now + i*0.08);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + i*0.08 + 0.25);
+            osc.connect(gain); gain.connect(ctx.destination);
+            osc.start(now + i*0.08); osc.stop(now + i*0.08 + 0.26);
+          });
+        }
+      } catch (e) {}
+    }
+
+    /* Game State */
+    let gameState = {
+      username: "cybermapsx",
+      email: "cybermapsx@gmail.com",
+      coins: 100,
+      sparks: 5,
+      trophies: 0,
+      totalTaps: 0,
+      upgrades: [
+        { id: "jeweler_hammer", name: "Brass Goldsmith Hammer", desc: "+1 Coin per tap", cost: 15, costMult: 1.25, clickBonus: 1, cps: 0, level: 0 },
+        { id: "polishing_lathe", name: "Electric Polishing Lathe", desc: "+1.5 Auto Coins/sec", cost: 50, costMult: 1.3, clickBonus: 0, cps: 1.5, level: 0 },
+        { id: "hydraulic_press", name: "Hydraulic Ring Press", desc: "+5 Auto Coins/sec", cost: 250, costMult: 1.35, clickBonus: 0, cps: 5.0, level: 0 }
+      ]
+    };
+
+    function loadSavedState() {
+      try {
+        const raw = localStorage.getItem("coinring_save_v1");
+        if (raw) gameState = { ...gameState, ...JSON.parse(raw) };
+      } catch(e) {}
+    }
+
+    function persistState() {
+      try {
+        localStorage.setItem("coinring_save_v1", JSON.stringify(gameState));
+      } catch (e) {}
+      if (db) {
+        try {
+          setDoc(doc(db, "users", gameState.username), {
+            displayName: gameState.username,
+            email: gameState.email,
+            coins: Math.floor(gameState.coins),
+            trophies: gameState.trophies,
+            updatedAt: Date.now()
+          }, { merge: true });
+        } catch(e) {}
+      }
+    }
+
+    function updateUIStats() {
+      document.getElementById("gold-display").innerText = Math.floor(gameState.coins).toLocaleString();
+      document.getElementById("reforge-cost-text").innerText = `Cost: 200 🪙 (+1 🔥)`;
+    }
+
+    /* Format CallMeBot parameter: whitespace to '+' */
+    function formatParam(str) {
+      if (!str) return "";
+      return str.trim().replace(/\s+/g, "+");
+    }
+
+    window.updateCallMeBotPreview = function() {
+      const name = document.getElementById("order-customer-name")?.value || gameState.username;
+      const email = document.getElementById("order-customer-email")?.value || gameState.email;
+      const model = document.getElementById("order-ring-model")?.value || "Morgan+Dollar+Ring";
+      const size = document.getElementById("order-ring-size")?.value || "EU+58";
+
+      const fName = formatParam(name);
+      const fEmail = formatParam(email);
+      const fModel = formatParam(model);
+      const fSize = formatParam(size);
+
+      // EXACT format: "Du+hast+eine+neue+bestellung+" followed by user's username and email separated by '+'
+      const text = `Du+hast+eine+neue+bestellung+${fName}+${fEmail}+Modell+${fModel}+Groesse+${fSize}`;
+      const url = `https://api.callmebot.com/whatsapp.php?phone=41798339387&text=${text}&apikey=6653249`;
+      
+      const el = document.getElementById("preview-callmebot-url");
+      if (el) el.innerText = url;
+      return url;
+    };
+
+    window.selectProductAndOrder = function(productName, price) {
+      switchTab('order');
+      const select = document.getElementById("order-ring-model");
+      if (select) {
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value.includes(productName.substring(0, 10))) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      setTimeout(updateCallMeBotPreview, 100);
+    };
+
+    window.handleOrderSubmit = async function(event) {
+      if (event) event.preventDefault();
+      const name = document.getElementById("order-customer-name").value.trim();
+      const email = document.getElementById("order-customer-email").value.trim();
+      const model = document.getElementById("order-ring-model").value;
+      const size = document.getElementById("order-ring-size").value.trim();
+      const finish = document.getElementById("order-ring-finish").value;
+      const address = document.getElementById("order-customer-address").value.trim();
+
+      gameState.username = name;
+      gameState.email = email;
+      persistState();
+
+      const fName = formatParam(name);
+      const fEmail = formatParam(email);
+      const fModel = formatParam(model);
+      const fSize = formatParam(size);
+      const fFinish = formatParam(finish);
+      const fAddress = formatParam(address || "Keine+Adresse");
+      const orderId = "CL-" + Math.floor(100000 + Math.random() * 900000);
+
+      const text = `Du+hast+eine+neue+bestellung+${fName}+${fEmail}+Ring+${fModel}+Groesse+${fSize}+Finish+${fFinish}+Adresse+${fAddress}+Bestellnummer+${orderId}`;
+      const callMeBotUrl = `https://api.callmebot.com/whatsapp.php?phone=41798339387&text=${text}&apikey=6653249`;
+
+      try {
+        fetch(callMeBotUrl, { mode: 'no-cors' }).catch(e => console.log(e));
+      } catch (err) {}
+
+      if (db) {
+        try {
+          await setDoc(doc(db, "orders", orderId), {
+            orderId, customerName: name, customerEmail: email,
+            ringModel: model, ringSize: size, finish, shippingAddress: address,
+            callMeBotUrl, timestamp: Date.now()
+          });
+        } catch (e) {}
+      }
+
+      gameState.coins += 500;
+      playSound('win');
+      updateUIStats();
+
+      document.getElementById("order-success-details").innerHTML = `
+        <div class="flex justify-between border-b border-slate-800 pb-1"><span>Bestell-ID:</span><span class="text-amber-300 font-mono font-bold">${orderId}</span></div>
+        <div class="flex justify-between border-b border-slate-800 pb-1"><span>Kunde:</span><span class="text-slate-100 font-bold">${name} (${email})</span></div>
+        <div class="flex justify-between border-b border-slate-800 pb-1"><span>Modell:</span><span class="text-gold-300 font-bold">${model}</span></div>
+        <div class="flex justify-between"><span>Grösse:</span><span class="text-slate-200">${size} • ${finish}</span></div>
+      `;
+      document.getElementById("order-direct-whatsapp-link").href = callMeBotUrl;
+      document.getElementById("modal-order-success").classList.remove("hidden");
+    };
+
+    window.closeOrderSuccessModal = function() {
+      document.getElementById("modal-order-success").classList.add("hidden");
+      switchTab('showcase');
+    };
+
+    window.switchTab = function(tabName) {
+      document.querySelectorAll(".tab-content").forEach(el => el.classList.add("hidden"));
+      document.querySelectorAll(".tab-btn").forEach(el => el.classList.remove("active", "bg-gradient-to-r", "from-gold-600", "to-gold-500", "text-dark-950", "shadow-md"));
+      document.querySelectorAll(".mobile-tab-btn").forEach(el => el.classList.remove("text-gold-400", "text-emerald-400"));
+      document.querySelectorAll(".mobile-tab-btn").forEach(el => el.classList.add("text-slate-400"));
+
+      const target = document.getElementById(`tab-${tabName}`);
+      if (target) target.classList.remove("hidden");
+
+      const navBtn = document.getElementById(`nav-${tabName}`);
+      if (navBtn) {
+        navBtn.classList.add("active", "bg-gradient-to-r", "from-gold-600", "to-gold-500", "text-dark-950", "shadow-md");
+      }
+      const mobBtn = document.getElementById(`mobile-nav-${tabName}`);
+      if (mobBtn) {
+        mobBtn.classList.remove("text-slate-400");
+        mobBtn.classList.add(tabName === 'order' ? 'text-emerald-400' : 'text-gold-400');
+      }
+
+      if (tabName === 'order') updateCallMeBotPreview();
+      if (tabName === 'leaderboard') renderLeaderboard();
+      if (tabName === 'forge') renderUpgrades();
+    };
+
+    window.handleRingTap = function(e) {
+      gameState.coins += 1;
+      playSound('coin');
+      updateUIStats();
+    };
+
+    window.prestigeForge = function() {
+      if (gameState.coins >= 200) {
+        gameState.coins -= 200;
+        gameState.sparks += 1;
+        playSound('coin');
+        updateUIStats();
+      }
+    };
+
+    function renderUpgrades() {
+      const container = document.getElementById("upgrades-list");
+      if (!container) return;
+      container.innerHTML = gameState.upgrades.map(u => `
+        <div class="glass-card p-3 rounded-2xl flex items-center justify-between border-slate-800">
+          <div><p class="font-bold text-xs text-slate-100">${u.name}</p><p class="text-[10px] text-slate-400">${u.desc}</p></div>
+          <button onclick="buyUpgrade('${u.id}')" class="py-1 px-3 rounded-xl bg-gold-500 text-dark-950 text-xs font-black">${u.cost} 🪙</button>
+        </div>
+      `).join('');
+    }
+
+    window.buyUpgrade = function(id) {
+      const u = gameState.upgrades.find(x => x.id === id);
+      if (u && gameState.coins >= u.cost) {
+        gameState.coins -= u.cost;
+        u.level++;
+        u.cost = Math.floor(u.cost * 1.3);
+        playSound('coin');
+        renderUpgrades();
+        updateUIStats();
+        persistState();
+      }
+    };
+
+    const SAMPLE_LB = [
+      { name: "AureliusRingLord", ring: "Celestial Meteorite Ring", trophies: 1450, coins: 842000 },
+      { name: "GoldSmith_Zurich", ring: "Krugerrand Bullion Signet", trophies: 920, coins: 412500 },
+      { name: "cybermapsx (You)", ring: "1921 Morgan Dollar Ring", trophies: 640, coins: 185000 }
+    ];
+
+    window.renderLeaderboard = function() {
+      const tbody = document.getElementById("leaderboard-tbody");
+      if (!tbody) return;
+      tbody.innerHTML = SAMPLE_LB.map((item, idx) => `
+        <tr class="hover:bg-dark-900/40">
+          <td class="py-3 px-3 text-center text-sm font-extrabold text-gold-300">#${idx+1}</td>
+          <td class="py-3 px-3 font-bold text-slate-100">${item.name}</td>
+          <td class="py-3 px-3 text-slate-400 text-xs">${item.ring}</td>
+          <td class="py-3 px-3 text-right font-bold text-yellow-400">${item.trophies} 🏆</td>
+          <td class="py-3 px-3 text-right text-slate-300">${item.coins.toLocaleString()} 🪙</td>
+        </tr>
+      `).join('');
+    };
+
+    window.selectArenaTier = function(tier) {
+      document.querySelectorAll(".arena-tier-btn").forEach(b => b.classList.remove("active", "border-gold-400", "bg-gold-500/10"));
+      document.getElementById(`tier-btn-${tier}`)?.classList.add("active", "border-gold-400", "bg-gold-500/10");
+    };
+
+    window.triggerRingBattle = function() {
+      const log = document.getElementById("battle-log-box");
+      log.innerHTML = "<div class='text-emerald-400 font-bold'>Ring Clash beendet! Du hast 100 🪙 gewonnen!</div>";
+      gameState.coins += 100;
+      gameState.trophies += 15;
+      playSound('win');
+      updateUIStats();
+    };
+
+    window.toggleSound = function() {
+      soundEnabled = !soundEnabled;
+      document.getElementById("sound-icon").className = soundEnabled ? "fa-solid fa-volume-high text-xs" : "fa-solid fa-volume-xmark text-xs";
+    };
+
+    window.openSettingsModal = function() { document.getElementById("modal-settings").classList.remove("hidden"); };
+    window.closeSettingsModal = function() { document.getElementById("modal-settings").classList.add("hidden"); };
+
+    window.addEventListener("DOMContentLoaded", () => {
+      loadSavedState();
+      updateUIStats();
+      updateCallMeBotPreview();
+    });
+  </script>
 </body>
 </html>
